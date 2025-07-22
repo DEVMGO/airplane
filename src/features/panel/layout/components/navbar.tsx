@@ -6,8 +6,8 @@ import { ExitModal } from "./exit-modal";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import LogoutIcon from "../../../../assets/icons/logout-icon";
-import UserIcon from "../../../../assets/icons/User-icon";
 import ArrowDownIcon from "../../../../assets/icons/arrow-down-icon";
+import UserIcon from "../../../../assets/icons/user-icon";
 
 const Navbar = () => {
     const { ref, isShow, setIsShow } = useOutSideClick();
