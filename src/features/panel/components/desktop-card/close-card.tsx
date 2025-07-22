@@ -22,6 +22,7 @@ const CloseCard = ({ flight }: { flight: FlightItemType }) => {
                             ...flight.logoStyle
                         }}
                         className="object-contain"
+                        loading="lazy"
                     />
                 </div>
                 <div className="w-1/2 flex items-center justify-center gap-3 mb-7">

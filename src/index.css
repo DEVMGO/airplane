@@ -48,3 +48,32 @@
 .card.open .card-back {
   transform: rotateY(0deg);
 }
+
+.dotsBackground::after {
+  content: "";
+  width: 500%;
+  height: 100%;
+  background: radial-gradient(circle, gray 4px, transparent 4px) 50% 50% / 40px
+    20px repeat-x;
+  position: absolute;
+  font-size: 100px;
+  background-size: 20px 20px;
+  animation: moveDots 2s linear infinite;
+  z-index: 1;
+}
+
+@keyframes moveDots {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .dotsBackground::after {
+    background: radial-gradient(circle, gray 3px, transparent 3px) 50% 50% /
+      20px 10px repeat-x;
+  }
+}

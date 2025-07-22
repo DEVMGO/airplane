@@ -36,11 +36,11 @@ const DetailsModal = ({ flight, isOpen, handleOpenModal
                         <p className="max-w-28 text-xs text-gray-400 font-medium text-center">{flight.src.airline}</p>
                     </div>
                     <div className="flex items-center justify-center flex-col gap-2">
-                        <div className="px-5 flex items-center justify-center relative">
+                        <div className="px-5 flex items-center justify-center relative overflow-hidden dotsBackground">
                             <img
                                 src="/images/airplane.png"
                                 alt="airplane"
-                                className="w-8"
+                                className="w-8 z-10"
                                 width={32}
                             />
                         </div>

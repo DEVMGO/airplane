@@ -22,7 +22,7 @@ const FlightCard = ({ flight }: { flight: FlightItemType }) => {
                 height: foldAngle === 0 ? '320px' : '160px'
             }}
             className='w-full transition-all duration-500 ease-in-out cursor-pointer md:block hidden'>
-            <div className='w-full h-40 -z-10 border-b-4 border-dashed border-gray-300 rounded-2xl overflow-hidden'>
+            <div className='w-full h-40 border-b-4 border-dashed border-gray-300 rounded-2xl overflow-hidden'>
                 <FlightDetailsCard flight={flight} />
             </div>
 
