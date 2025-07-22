@@ -1,6 +1,6 @@
+import ArrowRightIcon from "../../../../assets/icons/arrow-icon"
 import { calculateDuration, formatDateTime, secondsToTimeFormat } from "../../../../utils/time"
 import type { FlightItemType } from "../../api/type"
-import EastRoundedIcon from '@mui/icons-material/EastRounded';
 
 const DetailsModal = ({ flight, isOpen, handleOpenModal
 
@@ -26,7 +26,7 @@ const DetailsModal = ({ flight, isOpen, handleOpenModal
                 <div className="w-full flex items-center justify-between px-4">
                     {flight.class === 'economy' ? <p className="bg-red-500 rounded-md py-1 px-4 text-base text-white font-bold">Economy</p> : <span className="opacity-0" />}
                     <button onClick={handleOpenModal}>
-                        <EastRoundedIcon />
+                        <ArrowRightIcon className="rotate-180" strokeWidth={2.5} />
                     </button>
                 </div>
                 <div className="w-full flex items-center justify-center mt-7">
@@ -83,7 +83,7 @@ const DetailsModal = ({ flight, isOpen, handleOpenModal
                     </div>
                 </div>
 
-                <div className="min-w-36 flex items-center justify-center bg-gray-200 rounded mt-4">
+                <div className="min-w-36 flex items-center justify-center bg-gray-200 rounded py-1.5 px-5 mt-4">
                     <p className="text-3xl text-black font-bold">${flight.price}</p>
                 </div>
             </div>

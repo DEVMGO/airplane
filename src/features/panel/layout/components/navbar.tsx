@@ -1,12 +1,13 @@
 import { useState } from "react";
 import useOutSideClick from "../../../../hooks/use-outside-click";
-import { ArrowDropDown } from "@mui/icons-material";
-import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getUsernameApi, postLogoutApi } from "../api/api";
 import { ExitModal } from "./exit-modal";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import LogoutIcon from "../../../../assets/icons/logout-icon";
+import UserIcon from "../../../../assets/icons/User-icon";
+import ArrowDownIcon from "../../../../assets/icons/arrow-down-icon";
 
 const Navbar = () => {
     const { ref, isShow, setIsShow } = useOutSideClick();
@@ -60,14 +61,14 @@ const Navbar = () => {
                 <div ref={ref} className="w-fit flex items-end justify-start flex-col relative z-50">
                     <div
                         onClick={() => setIsShow(!isShow)}
-                        className="flex items-center justify-between gap-10 hover:bg-gray-100 cursor-pointer 
+                        className="w-40 flex items-center justify-between gap-1 hover:bg-gray-100 cursor-pointer 
                         transition-all duration-300 ease-in-out lg:py-3 py-2 px-2 rounded-md border border-gray-300 z-30"
                     >
-                        <p className="text-sm text-black font-normal">{data?.username}</p>
-
-                        <button className="">
-                            <ArrowDropDown className={`fill-[#23537B] ${isShow ? 'rotate-180' : ''} transition-all duration-300 ease-in-out`} />
-                        </button>
+                        <div className="w-4/5 flex items-center gap-1">
+                            <UserIcon className="min-w-6 max-w-6" />
+                            <p className="text-sm text-black font-normal truncate">{data?.username}</p>
+                        </div>
+                        <ArrowDownIcon stroke="#1f2937" className="max-w-3 min-w-3" />
                     </div>
 
                     <div
@@ -78,7 +79,7 @@ const Navbar = () => {
                             type="button"
                             onClick={() => setModalExit(true)}
                             className="w-full h-[58px] gap-2 text-base text-red-400 font-medium flex items-center justify-start">
-                            <LogoutRoundedIcon className="fill-red-400" />
+                            <LogoutIcon fill="#f87171" />
                             Logout
                         </button>
                     </div>
