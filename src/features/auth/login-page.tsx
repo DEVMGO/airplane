@@ -7,12 +7,12 @@ import { toast } from "react-toastify";
 import type { ResLoginType } from "./api/types";
 import Cookies from 'js-cookie';
 import Input from "../shared/components/input";
-import Modal from "./components/modal";
+import ErrorModal from "../shared/components/error-modal";
 import { useState } from "react";
 
 const LoginPage = () => {
-    const [showModal, setShowModal] = useState(false);
-    const handleCloseModal = () => setShowModal(false)
+    const [showModal, setShowModal] = useState<string | null>(null);
+    const handleCloseModal = () => setShowModal(null)
 
     const { mutate, isPending } = useMutation({
         mutationFn: (data: { username: string, password: string }) => {
@@ -24,9 +24,10 @@ const LoginPage = () => {
                 window.location.assign('/')
                 toast.success('You have successfully logged in.')
             } else {
-                setShowModal(true)
+                setShowModal("! The username or password is invalid.")
             }
         },
+        onError: () => setShowModal("! Unable to reach the server")
     })
 
     const {
@@ -86,17 +87,17 @@ const LoginPage = () => {
                     <button
                         type="submit"
                         disabled={isPending}
-                        className="w-full h-12 bg-red-400 hover:bg-red-600 text-white font-semibold rounded-md
-                        transition-all duration-200 ease-in-out mt-5"
+                        className={`w-full h-12 bg-red-400 hover:bg-red-600 text-white font-semibold rounded-md
+                        transition-all duration-200 ease-in-out mt-5 ${isPending && 'opacity-50'}`}
                     >
-                        Login
+                        {isPending ? 'Please wait..' : 'Login'}
                     </button>
                 </form>
             </div>
-            <Modal
-                isOpen={showModal}
+            <ErrorModal
+                isOpen={!!showModal}
                 onClose={handleCloseModal}
-                text="! The username or password is invalid."
+                text={showModal}
             />
         </div>
     )

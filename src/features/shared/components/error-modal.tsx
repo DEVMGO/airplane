@@ -1,11 +1,11 @@
 interface Props {
-    text: string
+    text: string | null
     isOpen: boolean
     onClose: () => void
     isLoading?: boolean
 }
 
-const Modal = ({ text, onClose, isLoading, isOpen }: Props) => {
+const ErrorModal = ({ text, onClose, isLoading, isOpen }: Props) => {
     return (
         <div
             className={`fixed top-0 left-0 w-full h-dvh flex items-center justify-center bg-black/30 p-6
@@ -15,7 +15,7 @@ const Modal = ({ text, onClose, isLoading, isOpen }: Props) => {
                 className={`w-full max-w-96 h-40 bg-white rounded-lg p-3 flex items-center justify-center flex-col gap-10 shadow-lg
                 ${isOpen ? 'delay-100 scale-100' : 'scale-0'} transform transition-all duration-300`}
             >
-                <p className="text-sm text-center leading-6 text-black font-medium">{text}</p>
+                <p className="text-sm text-center leading-6 text-black font-medium">{text || '...'}</p>
                 <div className="flex items-center">
                     <button
                         onClick={onClose}
@@ -28,4 +28,4 @@ const Modal = ({ text, onClose, isLoading, isOpen }: Props) => {
     )
 }
 
-export default Modal
+export default ErrorModal
