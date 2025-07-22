@@ -5,6 +5,7 @@ export const FormStateSchema = z.object({
     .string({
       message: "Username is required.",
     })
+    .min(1, "Username is required.")
     .max(100, "Username is invalid."),
   password: z
     .string({
